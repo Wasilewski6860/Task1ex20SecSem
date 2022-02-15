@@ -17,11 +17,11 @@ import javax.swing.JPanel;
 public class LinesComponent extends JComponent{
 
     private static class Line{
-        final int x1;
-        final int y1;
-        final int x2;
-        final int y2;
-        final Color color;
+        private int x1;
+        private int y1;
+        private int x2;
+        private int y2;
+        private Color color;
 
         public Line(int x1, int y1, int x2, int y2, Color color) {
             this.x1 = x1;

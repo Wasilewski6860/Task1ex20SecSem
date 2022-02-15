@@ -15,17 +15,41 @@ public class Main {
         comp.setPreferredSize(new Dimension(500, 500));
         testFrame.getContentPane().add(comp, BorderLayout.CENTER);
 
-        JPanel buttonsPanel = new JPanel();
+        JPanel bottomButtonsPanel = new JPanel();
+        JPanel topButtonsPanel = new JPanel();
+        JPanel rightSideButtonsPanel = new JPanel();
+        JPanel leftSideButtonPanel = new JPanel();
         JButton drawButton = new JButton("Draw");
-        JButton shareFirstSide = new JButton("Share FirstSide");
-        JButton shareSecondSide = new JButton("Share SecondSide");
-        JButton shareThirdSide = new JButton("Share ThirdSide");
-        JButton shareForthSide = new JButton("Share ForthSide");
-        JButton shareFirstPoint = new JButton("Share FirstPoint");
-        JButton shareSecondPoint = new JButton("Share SecondPoint");
-        JButton shareThirdPoint = new JButton("Share ThirdPoint");
-        JButton shareForthPoint = new JButton("Share ForthPoint");
-        JButton shareCenter = new JButton("Share Center");
+        JButton shareFirstSideNormal = new JButton("Share FirstSide Normal");
+        JButton shareSecondSideNormal = new JButton("Share SecondSide Normal");
+        JButton shareThirdSideNormal = new JButton("Share ThirdSide Normal");
+        JButton shareForthSideNormal = new JButton("Share ForthSide Normal");
+        JButton shareFirstPointNormal = new JButton("Share FirstPoint Normal");
+        JButton shareSecondPointNormal = new JButton("Share SecondPoint Normal");
+        JButton shareThirdPointNormal = new JButton("Share ThirdPoint Normal");
+        JButton shareForthPointNormal = new JButton("Share ForthPoint Normal");
+
+        JButton shareFirstSideHorizontal = new JButton("Share FirstSide Horizontal");
+        JButton shareSecondSideHorizontal = new JButton("Share SecondSide Horizontal");
+        JButton shareThirdSideHorizontal = new JButton("Share ThirdSide Horizontal");
+        JButton shareForthSideHorizontal = new JButton("Share ForthSide Horizontal");
+        JButton shareFirstPointHorizontal = new JButton("Share FirstPoint Horizontal");
+        JButton shareSecondPointHorizontal = new JButton("Share SecondPoint Horizontal");
+        JButton shareThirdPointHorizontal = new JButton("Share ThirdPoint Horizontal");
+        JButton shareForthPointHorizontal = new JButton("Share ForthPoint Horizontal");
+
+        JButton shareFirstSideVertical = new JButton("Share FirstSide Vertical");
+        JButton shareSecondSideVertical = new JButton("Share SecondSide Vertical");
+        JButton shareThirdSideVertical = new JButton("Share ThirdSide Vertical");
+        JButton shareForthSideVertical = new JButton("Share ForthSide Vertical");
+        JButton shareFirstPointVertical = new JButton("Share FirstPoint Vertical");
+        JButton shareSecondPointVertical = new JButton("Share SecondPoint Vertical");
+        JButton shareThirdPointVertical = new JButton("Share ThirdPoint Vertical");
+        JButton shareForthPointVertical = new JButton("Share ForthPoint Vertical");
+
+        JButton shareCenterNormal = new JButton("Share Center Normal");
+        JButton shareCenterVertical = new JButton("Share Center Vertical");
+        JButton shareCenterHorizontal = new JButton("Share Center Horizontal");
         JButton clearButton = new JButton("Clear");
         JButton circumscribed = new JButton("Circumscribed");
         JTextArea textField = new JTextArea("You Params");
@@ -34,23 +58,46 @@ public class Main {
         textField.setBackground(Color.WHITE);
         textField.setSize(100,10);
 
-        buttonsPanel.add(drawButton);
-        buttonsPanel.add(clearButton);
-        buttonsPanel.add(circumscribed);
-        buttonsPanel.add(textField);
-        buttonsPanel.add(shareCenter);
-        buttonsPanel.add(shareFirstSide);
-        buttonsPanel.add(shareSecondSide);
-        buttonsPanel.add(shareThirdSide);
-        buttonsPanel.add(shareForthSide);
-        buttonsPanel.add(shareFirstPoint);
-        buttonsPanel.add(shareSecondPoint);
-        buttonsPanel.add(shareThirdPoint);
-        buttonsPanel.add(shareForthPoint);
+        topButtonsPanel.add(drawButton);
+        topButtonsPanel.add(clearButton);
+        topButtonsPanel.add(circumscribed);
+        topButtonsPanel.add(textField);
+        topButtonsPanel.add(shareCenterNormal);
+        topButtonsPanel.add(shareCenterHorizontal);
+        topButtonsPanel.add(shareCenterVertical);
+        topButtonsPanel.add(shareFirstSideNormal);
+        topButtonsPanel.add(shareSecondSideNormal);
+        topButtonsPanel.add(shareThirdSideNormal);
+        topButtonsPanel.add(shareForthSideNormal);
+        topButtonsPanel.add(shareFirstPointNormal);
+        topButtonsPanel.add(shareSecondPointNormal);
+        topButtonsPanel.add(shareThirdPointNormal);
+        topButtonsPanel.add(shareForthPointNormal);
 
-        testFrame.getContentPane().add(buttonsPanel, BorderLayout.SOUTH);
+        bottomButtonsPanel.add(shareFirstSideHorizontal);
+        bottomButtonsPanel.add(shareSecondSideHorizontal);
+        bottomButtonsPanel.add(shareThirdSideHorizontal);
+        bottomButtonsPanel.add(shareForthSideHorizontal);
+        bottomButtonsPanel.add(shareFirstPointHorizontal);
+        bottomButtonsPanel.add(shareSecondPointHorizontal);
+        bottomButtonsPanel.add(shareThirdPointHorizontal);
+        bottomButtonsPanel.add(shareForthPointHorizontal);
 
-        Rectangle rectangle = new Rectangle(new Rectangle.Point(100,100), new Rectangle.Point(200,100), new Rectangle.Point(200,200), new Rectangle.Point( 100,200));
+        rightSideButtonsPanel.add(shareFirstSideVertical);
+        rightSideButtonsPanel.add(shareSecondSideVertical);
+        rightSideButtonsPanel.add(shareThirdSideVertical);
+        rightSideButtonsPanel.add(shareForthSideVertical);
+        rightSideButtonsPanel.add(shareFirstPointVertical);
+        rightSideButtonsPanel.add(shareSecondPointVertical);
+        rightSideButtonsPanel.add(shareThirdPointVertical);
+        rightSideButtonsPanel.add(shareForthPointVertical);
+
+
+        testFrame.getContentPane().add(topButtonsPanel, BorderLayout.NORTH);
+        testFrame.getContentPane().add(bottomButtonsPanel, BorderLayout.SOUTH);
+        testFrame.getContentPane().add(rightSideButtonsPanel, BorderLayout.WEST);
+
+        Rectangle rectangle = new Rectangle(new Point(20,30), new Point(40,10), new Point(80,50), new Point( 60,70));
         //40,0 140,80 100,130 0,50
         //100,100 200,100 200,200 100,200
         //-100,-100 100,-100 100,100 -100,100
@@ -60,10 +107,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                comp.addLine(rectangle.p1.x, rectangle.p1.y, rectangle.p2.x, rectangle.p2.y, Color.BLACK);
-                comp.addLine(rectangle.p2.x, rectangle.p2.y, rectangle.p3.x, rectangle.p3.y, Color.BLACK);
-                comp.addLine(rectangle.p3.x, rectangle.p3.y, rectangle.p4.x, rectangle.p4.y, Color.BLACK);
-                comp.addLine(rectangle.p4.x, rectangle.p4.y, rectangle.p1.x, rectangle.p1.y, Color.BLACK);
+                comp.addLine(rectangle.p1.getX(), rectangle.p1.getY(), rectangle.p2.getX(), rectangle.p2.getY(), Color.BLACK);
+                comp.addLine(rectangle.p2.getX(), rectangle.p2.getY(), rectangle.p3.getX(), rectangle.p3.getY(), Color.BLACK);
+                comp.addLine(rectangle.p3.getX(), rectangle.p3.getY(), rectangle.p4.getX(), rectangle.p4.getY(), Color.BLACK);
+                comp.addLine(rectangle.p4.getX(), rectangle.p4.getY(), rectangle.p1.getX(), rectangle.p1.getY(), Color.BLACK);
 
                 textField.setText("S= " + Rectangle.searchOfS(rectangle)+ "P= " + Rectangle.searchForP(rectangle));
 
@@ -83,120 +130,340 @@ public class Main {
 
                 Rectangle circedRectangle = Rectangle.createACircumscribedRectangle(rectangle);
 
-                comp.addLine(circedRectangle.p1.x, circedRectangle.p1.y, circedRectangle.p2.x, circedRectangle.p2.y, Color.BLACK);
-                comp.addLine(circedRectangle.p2.x, circedRectangle.p2.y, circedRectangle.p3.x, circedRectangle.p3.y, Color.BLACK);
-                comp.addLine(circedRectangle.p3.x, circedRectangle.p3.y, circedRectangle.p4.x, circedRectangle.p4.y, Color.BLACK);
-                comp.addLine(circedRectangle.p4.x, circedRectangle.p4.y, circedRectangle.p1.x, circedRectangle.p1.y, Color.BLACK);
+                comp.addLine(circedRectangle.p1.getX(), circedRectangle.p1.getY(), circedRectangle.p2.getX(), circedRectangle.p2.getY(), Color.BLACK);
+                comp.addLine(circedRectangle.p2.getX(), circedRectangle.p2.getY(), circedRectangle.p3.getX(), circedRectangle.p3.getY(), Color.BLACK);
+                comp.addLine(circedRectangle.p3.getX(), circedRectangle.p3.getY(), circedRectangle.p4.getX(), circedRectangle.p4.getY(), Color.BLACK);
+                comp.addLine(circedRectangle.p4.getX(), circedRectangle.p4.getY(), circedRectangle.p1.getX(), circedRectangle.p1.getY(), Color.BLACK);
             }
         });
 
-        shareFirstSide.addActionListener(new ActionListener() {
+        shareFirstSideNormal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FIRST,2);
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.NORMAL,2);
 
-                comp.addLine(rec.p1.x, rec.p1.y, rec.p2.x, rec.p2.y, Color.BLACK);
-                comp.addLine(rec.p2.x, rec.p2.y, rec.p3.x, rec.p3.y, Color.BLACK);
-                comp.addLine(rec.p3.x, rec.p3.y, rec.p4.x, rec.p4.y, Color.BLACK);
-                comp.addLine(rec.p4.x, rec.p4.y, rec.p1.x, rec.p1.y, Color.BLACK);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
 
             }
         });
-        shareSecondSide.addActionListener(new ActionListener() {
+        shareSecondSideNormal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.SECOND,2);
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.NORMAL,2);
 
-                comp.addLine(rec.p1.x, rec.p1.y, rec.p2.x, rec.p2.y, Color.BLACK);
-                comp.addLine(rec.p2.x, rec.p2.y, rec.p3.x, rec.p3.y, Color.BLACK);
-                comp.addLine(rec.p3.x, rec.p3.y, rec.p4.x, rec.p4.y, Color.BLACK);
-                comp.addLine(rec.p4.x, rec.p4.y, rec.p1.x, rec.p1.y, Color.BLACK);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
 
             }
         });
-        shareThirdSide.addActionListener(new ActionListener() {
+        shareThirdSideNormal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.THIRD,2);
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.NORMAL,2);
 
-                comp.addLine(rec.p1.x, rec.p1.y, rec.p2.x, rec.p2.y, Color.BLACK);
-                comp.addLine(rec.p2.x, rec.p2.y, rec.p3.x, rec.p3.y, Color.BLACK);
-                comp.addLine(rec.p3.x, rec.p3.y, rec.p4.x, rec.p4.y, Color.BLACK);
-                comp.addLine(rec.p4.x, rec.p4.y, rec.p1.x, rec.p1.y, Color.BLACK);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
 
             }
         });
-        shareForthSide.addActionListener(new ActionListener() {
+        shareForthSideNormal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FORTH,2);
-                comp.addLine(rec.p1.x, rec.p1.y, rec.p2.x, rec.p2.y, Color.BLACK);
-                comp.addLine(rec.p2.x, rec.p2.y, rec.p3.x, rec.p3.y, Color.BLACK);
-                comp.addLine(rec.p3.x, rec.p3.y, rec.p4.x, rec.p4.y, Color.BLACK);
-                comp.addLine(rec.p4.x, rec.p4.y, rec.p1.x, rec.p1.y, Color.BLACK);
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.NORMAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
         });
-        shareFirstPoint.addActionListener(new ActionListener() {
+        shareFirstPointNormal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FIRST,2);
-                comp.addLine(rec.p1.x, rec.p1.y, rec.p2.x, rec.p2.y, Color.BLACK);
-                comp.addLine(rec.p2.x, rec.p2.y, rec.p3.x, rec.p3.y, Color.BLACK);
-                comp.addLine(rec.p3.x, rec.p3.y, rec.p4.x, rec.p4.y, Color.BLACK);
-                comp.addLine(rec.p4.x, rec.p4.y, rec.p1.x, rec.p1.y, Color.BLACK);
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.NORMAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
         });
-        shareSecondPoint.addActionListener(new ActionListener() {
+        shareSecondPointNormal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.SECOND,2);
-                comp.addLine(rec.p1.x, rec.p1.y, rec.p2.x, rec.p2.y, Color.BLACK);
-                comp.addLine(rec.p2.x, rec.p2.y, rec.p3.x, rec.p3.y, Color.BLACK);
-                comp.addLine(rec.p3.x, rec.p3.y, rec.p4.x, rec.p4.y, Color.BLACK);
-                comp.addLine(rec.p4.x, rec.p4.y, rec.p1.x, rec.p1.y, Color.BLACK);
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.NORMAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
         });
-        shareThirdPoint.addActionListener(new ActionListener() {
+        shareThirdPointNormal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.THIRD,2);
-                comp.addLine(rec.p1.x, rec.p1.y, rec.p2.x, rec.p2.y, Color.BLACK);
-                comp.addLine(rec.p2.x, rec.p2.y, rec.p3.x, rec.p3.y, Color.BLACK);
-                comp.addLine(rec.p3.x, rec.p3.y, rec.p4.x, rec.p4.y, Color.BLACK);
-                comp.addLine(rec.p4.x, rec.p4.y, rec.p1.x, rec.p1.y, Color.BLACK);
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.NORMAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
         });
-        shareForthPoint.addActionListener(new ActionListener() {
+        shareForthPointNormal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FORTH,2);
-                comp.addLine(rec.p1.x, rec.p1.y, rec.p2.x, rec.p2.y, Color.BLACK);
-                comp.addLine(rec.p2.x, rec.p2.y, rec.p3.x, rec.p3.y, Color.BLACK);
-                comp.addLine(rec.p3.x, rec.p3.y, rec.p4.x, rec.p4.y, Color.BLACK);
-                comp.addLine(rec.p4.x, rec.p4.y, rec.p1.x, rec.p1.y, Color.BLACK);
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.NORMAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
         });
-        shareCenter.addActionListener(new ActionListener() {
+        shareFirstSideHorizontal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.CENTER, Rectangle.numberOFSelected.FORTH,2);
-                comp.addLine(rec.p1.x, rec.p1.y, rec.p2.x, rec.p2.y, Color.BLACK);
-                comp.addLine(rec.p2.x, rec.p2.y, rec.p3.x, rec.p3.y, Color.BLACK);
-                comp.addLine(rec.p3.x, rec.p3.y, rec.p4.x, rec.p4.y, Color.BLACK);
-                comp.addLine(rec.p4.x, rec.p4.y, rec.p1.x, rec.p1.y, Color.BLACK);
+
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.HORIZONTAL,2);
+
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+
+            }
+        });
+        shareSecondSideHorizontal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.HORIZONTAL,2);
+
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+
+            }
+        });
+        shareThirdSideHorizontal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.HORIZONTAL,2);
+
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+            }
+        });
+        shareForthSideHorizontal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.HORIZONTAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+        shareFirstPointHorizontal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.HORIZONTAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+        shareSecondPointHorizontal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.HORIZONTAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+        shareThirdPointHorizontal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.HORIZONTAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+        shareForthPointHorizontal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.HORIZONTAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+        shareFirstSideVertical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.VERTICAL,2);
+
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+
+            }
+        });
+        shareSecondSideVertical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.VERTICAL,2);
+
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+
+            }
+        });
+        shareThirdSideVertical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.VERTICAL,2);
+
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+
+            }
+        });
+        shareForthSideVertical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.VERTICAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+        shareFirstPointVertical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.VERTICAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+        shareSecondPointVertical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.VERTICAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+        shareThirdPointVertical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.VERTICAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+        shareForthPointVertical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.VERTICAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                System.out.println("Shared");
+
+            }
+        });
+
+        shareCenterNormal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.CENTER, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.NORMAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+            }
+        });
+
+        shareCenterHorizontal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.CENTER, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.HORIZONTAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+            }
+        });
+
+        shareCenterVertical.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.CENTER, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.VERTICAL,2);
+                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
+                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
+                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
+                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
             }
         });
 

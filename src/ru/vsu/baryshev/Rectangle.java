@@ -3,19 +3,10 @@ package ru.vsu.baryshev;
 import java.util.ArrayList;
 import java.util.List;
 
-class Rectangle {
-
-    static final class Point {
-        protected int x;
-        public int y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
+class Rectangle  {
 
 
-    }
+
 
     enum typeOfHolding {
         POINT,
@@ -31,25 +22,33 @@ class Rectangle {
         FORTH
     }
 
+    enum typeOfShape{
+        HORIZONTAL,
+        VERTICAL,
+        NORMAL
+    }
+
     public Point p1;
     public Point p2;
     public Point p3;
     public Point p4;
 
 
+
+
     public Rectangle(Point p1, Point p2, Point p3, Point p4) {
 
-        if (((p2.x - p1.x) * (p3.x - p2.x) + (p2.y - p1.y) * (p3.y - p2.y) == 0) && ((p3.x - p2.x) * (p4.x - p3.x) + (p3.y - p2.y) * (p4.y - p3.y) == 0) && ((p4.x - p3.x) * (p1.x - p4.x) + (p4.y - p3.y) * (p1.y - p4.y) == 0)) {
+        if (((p2.getX() - p1.getX()) * (p3.getX() - p2.getX()) + (p2.getY() - p1.getY()) * (p3.getY() - p2.getY()) == 0) && ((p3.getX() - p2.getX()) * (p4.getX() - p3.getX()) + (p3.getY() - p2.getY()) * (p4.getY() - p3.getY()) == 0) && ((p4.getX() - p3.getX()) * (p1.getX() - p4.getX()) + (p4.getY() - p3.getY()) * (p1.getY() - p4.getY()) == 0)) {
             // Выше проверка на прямоугольность(через тангенс угла)
             this.p1 = p1;
             this.p2 = p2;
             this.p3 = p3;
             this.p4 = p4;
         } else {
-            this.p1 = null;
-            this.p2 = null;
-            this.p3 = null;
-            this.p4 = null;
+            this.p1 = p1;
+            this.p2 = p2;
+            this.p3 = p3;
+            this.p4 = p4;
             System.out.println("Не прямоугольник");
         }
 
@@ -58,7 +57,7 @@ class Rectangle {
 
     public static double searchOfS(Rectangle rec) { // Поиск площади переданного прямоугольника
 
-        double m = 0.5 * (rec.p1.x * rec.p2.y + rec.p2.x * rec.p3.y + rec.p3.x * rec.p4.y + rec.p4.x * rec.p1.y - rec.p2.x * rec.p1.y - rec.p3.x * rec.p2.y - rec.p4.x * rec.p3.y - rec.p1.x * rec.p4.y);
+        double m = 0.5 * (rec.p1.getX() * rec.p2.getY() + rec.p2.getX() * rec.p3.getY() + rec.p3.getX() * rec.p4.getY() + rec.p4.getX() * rec.p1.getY() - rec.p2.getX() * rec.p1.getY() - rec.p3.getX() * rec.p2.getY() - rec.p4.getX() * rec.p3.getY() - rec.p1.getX() * rec.p4.getY());
         if (m >= 0) {
             return m;
         } else return -1 * m;
@@ -68,11 +67,12 @@ class Rectangle {
         return distanceBetweenPoints(rec.p1, rec.p2) + distanceBetweenPoints(rec.p2, rec.p3) + distanceBetweenPoints(rec.p3, rec.p4) + distanceBetweenPoints(rec.p4, rec.p1);
     }
 
-    public static double distanceBetweenPoints(Point p1, Point p2) { // Поиск расстояния между точками(длины стороны прямоугольника).
-        return Math.sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
+
+    private static double distanceBetweenPoints(Point p1, Point p2) { // Поиск расстояния между точками(длины стороны прямоугольника).
+        return Math.sqrt((p2.getX() - p1.getX()) * (p2.getX() - p1.getX()) + (p2.getY() - p1.getY()) * (p2.getY() - p1.getY()));
     }
 
-    public static Point[] sortClockwise(Rectangle rec) {  // Метод сортировки точек прямоугольника в определенном порядке
+    private static Point[] sortClockwise(Rectangle rec) {  // Метод сортировки точек прямоугольника в определенном порядке
         //Необходимо для масштабирования и описывания фигуры т.к., по причине отсутствия универсальной мат.формулы и т.п., необходим четкий порядок точек.
 
         Point p1 = rec.p1;
@@ -95,18 +95,18 @@ class Rectangle {
         double minX = 400;
 
         for (Point point : startList) {   // Поиск максимального/минимального значений абсциссы/ординаты, по ним будет осуществлять сортировка точек.
-            if (maxY <= point.y) maxY = point.y;
-            if (minY >= point.y) minY = point.y;
-            if (maxX <= point.x) maxX = point.x;
-            if (minX >= point.x) minX = point.x;
+            if (maxY <= point.getY()) maxY = point.getY();
+            if (minY >= point.getY()) minY = point.getY();
+            if (maxX <= point.getX()) maxX = point.getX();
+            if (minX >= point.getX()) minX = point.getX();
         }
 
 
         for (Point point : startList) {   // Сортировка точек. Был выбран следующий порядок: первой точкой является верхняя левая точка фигуры, далее по часовой стрелке(отсюда название метода).
-            if (point.x == minX && ((point.y - minY) <= (maxY - point.y))) answer[0] = point;
-            if (point.y == minY) answer[1] = point;
-            if (point.x == maxX) answer[2] = point;
-            if (point.y == maxY) answer[3] = point;
+            if (point.getX() == minX && ((point.getY() - minY) <= (maxY - point.getY()))) answer[0] = point;
+            if (point.getY() == minY) answer[1] = point;
+            if (point.getX() == maxX) answer[2] = point;
+            if (point.getY() == maxY) answer[3] = point;
         }
         return answer;
 
@@ -117,22 +117,22 @@ class Rectangle {
         Point[] arrayOfSortedPoints = sortClockwise(startRectangle); // Упорядовачиваем точки начальной фигуры соот.образом
 
 
-        if (startRectangle.p1.y != startRectangle.p2.y && startRectangle.p1.x != startRectangle.p2.x) { // Случай, когда прямоугольник расположен "неровно" т.е. его стороны не параллельны осям координат.
-                                                                                                        // Тогда проявляются преимущества сортировки по часовой стрелке
+        if (startRectangle.p1.getY() != startRectangle.p2.getY() && startRectangle.p1.getX() != startRectangle.p2.getX()) { // Случай, когда прямоугольник расположен "неровно" т.е. его стороны не параллельны осям координат.
+            // Тогда проявляются преимущества сортировки по часовой стрелке
 
-            Point p1 = new Point(arrayOfSortedPoints[0].x, arrayOfSortedPoints[1].y);
-            Point p2 = new Point(arrayOfSortedPoints[2].x, arrayOfSortedPoints[1].y);
-            Point p3 = new Point(arrayOfSortedPoints[2].x, arrayOfSortedPoints[3].y);
-            Point p4 = new Point(arrayOfSortedPoints[0].x, arrayOfSortedPoints[3].y);
+            Point p1 = new Point(arrayOfSortedPoints[0].getX(), arrayOfSortedPoints[1].getY());
+            Point p2 = new Point(arrayOfSortedPoints[2].getX(), arrayOfSortedPoints[1].getY());
+            Point p3 = new Point(arrayOfSortedPoints[2].getX(), arrayOfSortedPoints[3].getY());
+            Point p4 = new Point(arrayOfSortedPoints[0].getX(), arrayOfSortedPoints[3].getY());
 
             return new Rectangle(p1, p2, p3, p4);
 
         } else { // Частный случай расположения фигуры: стороны параллельны осям координат
 
-            Point p1 = new Point((arrayOfSortedPoints[0].x - (arrayOfSortedPoints[3].y - arrayOfSortedPoints[0].y) / 2), (arrayOfSortedPoints[3].y - arrayOfSortedPoints[0].y) / 2 + arrayOfSortedPoints[0].y);
-            Point p2 = new Point((arrayOfSortedPoints[1].x - arrayOfSortedPoints[0].x) / 2 + arrayOfSortedPoints[0].x, arrayOfSortedPoints[1].y - (arrayOfSortedPoints[1].x - arrayOfSortedPoints[0].x) / 2);
-            Point p3 = new Point(arrayOfSortedPoints[1].x + (arrayOfSortedPoints[2].y - arrayOfSortedPoints[1].y) / 2, (arrayOfSortedPoints[2].y - arrayOfSortedPoints[1].y) / 2 + arrayOfSortedPoints[1].y);
-            Point p4 = new Point((arrayOfSortedPoints[1].x - arrayOfSortedPoints[0].x) / 2 + arrayOfSortedPoints[0].x, arrayOfSortedPoints[2].y + (arrayOfSortedPoints[2].y - arrayOfSortedPoints[1].y) / 2);
+            Point p1 = new Point((arrayOfSortedPoints[0].getX() - (arrayOfSortedPoints[3].getY() - arrayOfSortedPoints[0].getY()) / 2), (arrayOfSortedPoints[3].getY() - arrayOfSortedPoints[0].getY()) / 2 + arrayOfSortedPoints[0].getY());
+            Point p2 = new Point((arrayOfSortedPoints[1].getX() - arrayOfSortedPoints[0].getX()) / 2 + arrayOfSortedPoints[0].getX(), arrayOfSortedPoints[1].getY() - (arrayOfSortedPoints[1].getX() - arrayOfSortedPoints[0].getX()) / 2);
+            Point p3 = new Point(arrayOfSortedPoints[1].getX() + (arrayOfSortedPoints[2].getY() - arrayOfSortedPoints[1].getY()) / 2, (arrayOfSortedPoints[2].getY() - arrayOfSortedPoints[1].getY()) / 2 + arrayOfSortedPoints[1].getY());
+            Point p4 = new Point((arrayOfSortedPoints[1].getX() - arrayOfSortedPoints[0].getX()) / 2 + arrayOfSortedPoints[0].getX(), arrayOfSortedPoints[2].getY() + (arrayOfSortedPoints[2].getY() - arrayOfSortedPoints[1].getY()) / 2);
             System.out.println("Второй");
 
             return new Rectangle(p1, p2, p3, p4);
@@ -141,8 +141,8 @@ class Rectangle {
     }
 
 
-    public static Rectangle moving(Rectangle startRectangle, typeOfHolding type, numberOFSelected number, int k) { // Масштабирование фигуры,передается стартовый прямоугольник,
-                                                                                                // тип опорной точки(точка/сторона,центр), номер выбранной точки, коэффициен масштабирования
+    public static Rectangle moving(Rectangle startRectangle, typeOfHolding type, numberOFSelected number,typeOfShape typeOfShape, int k) { // Масштабирование фигуры,передается стартовый прямоугольник,
+        // тип опорной точки(точка/сторона,центр), номер выбранной точки, коэффициен масштабирования
 
         Point[] points = sortClockwise(startRectangle); // Сортировка точек исходной фигуры
 
@@ -154,40 +154,124 @@ class Rectangle {
                 switch (number) {
 
                     case FIRST: {
-                        Point p1 = new Point((points[0].x + (k - 1) * (points[0].x - points[1].x) / 2), (points[0].y + (k - 1) * (points[0].y - points[1].y) / 2));
-                        Point p2 = new Point((points[1].x + (points[1].x - points[0].x) / 2 * (k - 1)), (points[1].y + (k - 1) * (points[1].y - points[0].y) / 2));
-                        Point p3 = new Point((points[2].x + (k - 1) * (points[2].x - points[1].x + (points[1].x - points[0].x) / 2)), (points[2].y + (k - 1) * (points[2].y - points[1].y + (points[1].y - points[0].y) / 2)));
-                        Point p4 = new Point((points[3].x + (k - 1) * (points[3].x - points[0].x + (points[0].x - points[1].x) / 2)), (points[3].y + (k - 1) * (points[3].y - points[0].y + (points[0].y - points[1].y) / 2)));
+                        switch (typeOfShape){
+                            case NORMAL:{
+                                Point p1 = new Point((points[0].getX() + (k - 1) * (points[0].getX() - points[1].getX()) / 2), (points[0].getY() + (k - 1) * (points[0].getY() - points[1].getY()) / 2));
+                                Point p2 = new Point((points[1].getX() + (points[1].getX() - points[0].getX()) / 2 * (k - 1)), (points[1].getY() + (k - 1) * (points[1].getY() - points[0].getY()) / 2));
+                                Point p3 = new Point((points[2].getX() + (k - 1) * (points[2].getX() - points[1].getX() + (points[1].getX() - points[0].getX()) / 2)), (points[2].getY() + (k - 1) * (points[2].getY() - points[1].getY() + (points[1].getY() - points[0].getY()) / 2)));
+                                Point p4 = new Point((points[3].getX() + (k - 1) * (points[3].getX() - points[0].getX() + (points[0].getX() - points[1].getX()) / 2)), (points[3].getY() + (k - 1) * (points[3].getY() - points[0].getY() + (points[0].getY() - points[1].getY()) / 2)));
 
-                        return new Rectangle(p1, p2, p3, p4);
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                            case VERTICAL:{
+                                Point p1 = points[0];
+                                Point p2 = points[1];
+                                Point p3 = new Point(points[2].getX(),points[2].getY()+(k-1)*(points[2].getY()-points[1].getY()));
+                                Point p4 = new Point(points[3].getX(),points[3].getY()+(k-1)*(points[3].getY()-points[0].getY()));
+                                return new Rectangle(p1, p2, p3, p4);
+
+
+                            }
+                            case HORIZONTAL:{
+                                Point p1 = points[0];
+                                Point p2 = points[1];
+                                Point p3 = new Point(points[2].getX()+(k-1)*(points[2].getX()-points[1].getX()),points[2].getY());
+                                Point p4 = new Point(points[3].getX()+(k-1)*(points[3].getX()-points[0].getX()),points[3].getY());
+                                return new Rectangle(p1, p2, p3, p4);
+
+                            }
+                        }
+
 
                     }
                     case SECOND: {
 
+                        switch (typeOfShape){
+                            case NORMAL:{
+                                Point p1 = new Point(points[0].getX() + (k - 1) * (points[0].getX() - points[1].getX() + (points[0].getX() - points[3].getX()) / 2), points[0].getY() + (k - 1) * (points[0].getY() - points[1].getY() + (points[0].getY() - points[3].getY()) / 2));
+                                Point p2 = new Point(points[1].getX() + (k - 1) * (points[1].getX() - points[2].getX()) / 2, points[1].getY() + (k - 1) * (points[1].getY() - points[2].getY()) / 2);
+                                Point p3 = new Point(points[2].getX() + (k - 1) * (points[2].getX() - points[1].getX()) / 2, points[2].getY() + (k - 1) * (points[2].getY() - points[1].getY()) / 2);
+                                Point p4 = new Point(points[3].getX() + (k - 1) * (points[3].getX() - points[2].getX() + (points[3].getX() - points[0].getX()) / 2), points[3].getY() + (k - 1) * (points[3].getY() - points[2].getY() + (points[3].getY() - points[0].getY()) / 2));
 
-                        Point p1 = new Point(points[0].x + (k - 1) * (points[0].x - points[1].x + (points[0].x - points[3].x) / 2), points[0].y + (k - 1) * (points[0].y - points[1].y + (points[0].y - points[3].y) / 2));
-                        Point p2 = new Point(points[1].x + (k - 1) * (points[1].x - points[2].x) / 2, points[1].y + (k - 1) * (points[1].y - points[2].y) / 2);
-                        Point p3 = new Point(points[2].x + (k - 1) * (points[2].x - points[1].x) / 2, points[2].y + (k - 1) * (points[2].y - points[1].y) / 2);
-                        Point p4 = new Point(points[3].x + (k - 1) * (points[3].x - points[2].x + (points[3].x - points[0].x) / 2), points[3].y + (k - 1) * (points[3].y - points[2].y + (points[3].y - points[0].y) / 2));
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                            case VERTICAL:{
+                                Point p1 = new Point(points[0].getX(),points[0].getY()+(k-1)*(points[0].getY()-points[1].getY()));
+                                Point p2 = points[1];
+                                Point p3 = points[2];
+                                Point p4 = new Point(points[3].getX(),points[3].getY()+(k-1)*(points[3].getY()-points[2].getY()));
 
-                        return new Rectangle(p1, p2, p3, p4);
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                            case HORIZONTAL:{
+                                Point p1 = new Point(points[0].getX()+(k-1)*(points[0].getX()-points[1].getX()),points[0].getY());
+                                Point p2 = points[1];
+                                Point p3 = points[2];
+                                Point p4 = new Point(points[3].getX()+(k-1)*(points[3].getX()-points[2].getX()),points[3].getY());
+
+                                return new Rectangle(p1, p2, p3, p4);
+
+                            }
+                        }
+
                     }
                     case THIRD: {
-                        Point p1 = new Point(points[0].x + (k - 1) * (points[0].x - points[3].x + (points[0].x - points[1].x) / 2), points[0].y + (k - 1) * (points[0].y - points[3].y + (points[0].y - points[1].y) / 2));
-                        Point p2 = new Point(points[1].x + (k - 1) * (points[1].x - points[2].x + (points[2].x - points[3].x) / 2), points[1].y + (k - 1) * (points[1].y - points[2].y + (points[2].y - points[3].y) / 2));
-                        Point p3 = new Point(points[2].x + (k - 1) * (points[2].x - points[3].x) / 2, points[2].y + (k - 1) * (points[2].y - points[3].y) / 2);
-                        Point p4 = new Point(points[3].x + (k - 1) * (points[3].x - points[2].x) / 2, points[3].y + (k - 1) * (points[3].y - points[2].y) / 2);
+                        switch (typeOfShape){
+                            case NORMAL:{
+                                Point p1 = new Point(points[0].getX() + (k - 1) * (points[0].getX() - points[3].getX() + (points[0].getX() - points[1].getX()) / 2), points[0].getY() + (k - 1) * (points[0].getY() - points[3].getY() + (points[0].getY() - points[1].getY()) / 2));
+                                Point p2 = new Point(points[1].getX() + (k - 1) * (points[1].getX() - points[2].getX() + (points[2].getX() - points[3].getX()) / 2), points[1].getY() + (k - 1) * (points[1].getY() - points[2].getY() + (points[2].getY() - points[3].getY()) / 2));
+                                Point p3 = new Point(points[2].getX() + (k - 1) * (points[2].getX() - points[3].getX()) / 2, points[2].getY() + (k - 1) * (points[2].getY() - points[3].getY()) / 2);
+                                Point p4 = new Point(points[3].getX() + (k - 1) * (points[3].getX() - points[2].getX()) / 2, points[3].getY() + (k - 1) * (points[3].getY() - points[2].getY()) / 2);
 
-                        return new Rectangle(p1, p2, p3, p4);
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                            case VERTICAL:{
+                                Point p1 = new Point(points[0].getX(),points[0].getY()+(k-1)*(points[0].getY()-points[3].getY()));
+                                Point p2 = new Point(points[1].getX(),points[1].getY()+(k-1)*(points[1].getY()-points[2].getY()));
+                                Point p3 = points[2];
+                                Point p4 = points[3];
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                            case HORIZONTAL:{
+                                Point p1 = new Point(points[0].getX()+(k-1)*(points[0].getX()-points[3].getX()),points[0].getY());
+                                Point p2 = new Point(points[1].getX()+(k-1)*(points[1].getX()-points[2].getX()),points[1].getY());
+                                Point p3 = points[2];
+                                Point p4 = points[3];
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                        }
 
                     }
                     case FORTH: {
-                        Point p1 = new Point(points[0].x + (k - 1) * (points[0].x - points[3].x) / 2, points[0].y + (k - 1) * (points[0].y - points[3].y) / 2);
-                        Point p2 = new Point(points[1].x + (k - 1) * (points[1].x - points[0].x + (points[1].x - points[2].x) / 2), points[1].y + (k - 1) * (points[1].y - points[0].y + (points[1].y - points[2].y) / 2));
-                        Point p3 = new Point(points[2].x + (k - 1) * (points[2].x - points[3].x + (points[2].x - points[1].x) / 2), points[2].y + (k - 1) * (points[2].y - points[3].y + (points[2].y - points[1].y) / 2));
-                        Point p4 = new Point(points[3].x + (k - 1) * (points[3].x - points[0].x) / 2, points[3].y + (k - 1) * (points[3].y - points[0].y) / 2);
+                        switch (typeOfShape){
+                            case NORMAL:{
+                                Point p1 = new Point(points[0].getX() + (k - 1) * (points[0].getX() - points[3].getX()) / 2, points[0].getY() + (k - 1) * (points[0].getY() - points[3].getY()) / 2);
+                                Point p2 = new Point(points[1].getX() + (k - 1) * (points[1].getX() - points[0].getX() + (points[1].getX() - points[2].getX()) / 2), points[1].getY() + (k - 1) * (points[1].getY() - points[0].getY() + (points[1].getY() - points[2].getY()) / 2));
+                                Point p3 = new Point(points[2].getX() + (k - 1) * (points[2].getX() - points[3].getX() + (points[2].getX() - points[1].getX()) / 2), points[2].getY() + (k - 1) * (points[2].getY() - points[3].getY() + (points[2].getY() - points[1].getY()) / 2));
+                                Point p4 = new Point(points[3].getX() + (k - 1) * (points[3].getX() - points[0].getX()) / 2, points[3].getY() + (k - 1) * (points[3].getY() - points[0].getY()) / 2);
 
-                        return new Rectangle(p1, p2, p3, p4);
+                                return new Rectangle(p1, p2, p3, p4);
+
+                            }
+                            case VERTICAL:{
+                                Point p1 = points[0];
+                                Point p2 = new Point(points[1].getX(),points[1].getY()+(k-1)*(points[1].getY()-points[0].getY()));
+                                Point p3 = new Point(points[2].getX(),points[2].getY()+(k-1)*(points[2].getY()-points[3].getY()));
+                                Point p4 = points[3];
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                            case HORIZONTAL:{
+                                Point p1 = points[0];
+                                Point p2 = new Point(points[1].getX()+(k-1)*(points[1].getX()-points[0].getX()),points[1].getY());
+                                Point p3 = new Point(points[2].getX()+(k-1)*(points[2].getX()-points[3].getX()),points[2].getY());
+                                Point p4 = points[3];
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                        }
 
                     }
                 }
@@ -196,61 +280,173 @@ class Rectangle {
             case POINT: { // Если масштабирование относительно точки
                 switch (number) {
                     case FIRST: {
+                        switch (typeOfShape){
+                            case HORIZONTAL:{
+                                Point p1 = points[0];
+                                Point p2 = new Point(points[1].getX() + (k-1)*(points[1].getX()-points[0].getX()),points[1].getY());
+                                Point p3 = new Point(points[2].getX() + (k-1)*(points[2].getX()-points[0].getX()),points[2].getY());
+                                Point p4 = new Point(points[3].getX() + (k-1)*(points[3].getX()-points[0].getX()),points[3].getY());
 
-                        Point p1 = points[0];
-                        Point p2 = new Point(points[1].x + (k - 1) * (points[1].x - points[0].x), points[1].y + (k - 1) * ((points[1].y - points[0].y)));
-                        Point p3 = new Point(points[2].x + (k - 1) * (points[2].x - points[1].x + points[2].x - points[3].x), points[2].y + (k - 1) * (points[2].y - points[1].y + points[2].y - points[3].y));
-                        Point p4 = new Point(points[3].x + (k - 1) * (points[3].x - points[0].x), points[3].y + (k - 1) * (points[3].y - points[0].y));
+                                return new Rectangle(p1, p2, p3, p4);
 
-                        return new Rectangle(p1, p2, p3, p4);
+                            }case VERTICAL:{
+                                Point p1 = points[0];
+                                Point p2 = new Point(points[1].getX() ,points[1].getY()+ (k-1)*(points[1].getY()-points[0].getY()));
+                                Point p3 = new Point(points[2].getX() ,points[2].getY()+ (k-1)*(points[2].getY()-points[0].getY()));
+                                Point p4 = new Point(points[3].getX() ,points[3].getY()+ (k-1)*(points[3].getY()-points[0].getY()));
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            } case NORMAL:{
+                                Point p1 = points[0];
+                                Point p2 = new Point(points[1].getX() + (k - 1) * (points[1].getX() - points[0].getX()), points[1].getY() + (k - 1) * ((points[1].getY() - points[0].getY())));
+                                Point p3 = new Point(points[2].getX() + (k - 1) * (points[2].getX() - points[1].getX() + points[2].getX() - points[3].getX()), points[2].getY() + (k - 1) * (points[2].getY() - points[1].getY() + points[2].getY() - points[3].getY()));
+                                Point p4 = new Point(points[3].getX() + (k - 1) * (points[3].getX() - points[0].getX()), points[3].getY() + (k - 1) * (points[3].getY() - points[0].getY()));
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                        }
+
 
                     }
                     case SECOND: {
+                        switch (typeOfShape){
+                            case HORIZONTAL:{
+                                Point p1 = new Point(points[0].getX()+(k-1)*(points[0].getX()-points[1].getX()),points[0].getY());
+                                Point p2 = points[1];
+                                Point p3 = new Point(points[2].getX()+(k-1)*(points[2].getX()-points[1].getX()),points[2].getY());
+                                Point p4 = new Point(points[3].getX()+(k-1)*(points[3].getX()-points[1].getX()),points[3].getY());
 
-                        Point p1 = new Point(points[0].x + (k - 1) * (points[0].x - points[1].x), points[0].y + (k - 1) * (points[0].y - points[1].y));
-                        Point p2 = points[1];
-                        Point p3 = new Point(points[2].x + (k - 1) * (points[2].x - points[1].x), points[2].y + (k - 1) * (points[2].y - points[1].y));
-                        Point p4 = new Point(points[3].x + (k - 1) * (points[3].x - points[0].x + (points[3].x - points[2].x)), points[3].y + (k - 1) * (points[3].y - points[0].y + (points[3].y - points[2].y)));
+                                return new Rectangle(p1, p2, p3, p4);
 
-                        return new Rectangle(p1, p2, p3, p4);
+                            }case VERTICAL:{
+                                Point p1 = new Point(points[0].getX(),points[0].getY()+(k-1)*(points[0].getY()-points[1].getY()));
+                                Point p2 = points[1];
+                                Point p3 = new Point(points[2].getX(),points[2].getY()+(k-1)*(points[2].getY()-points[1].getY()));
+                                Point p4 = new Point(points[3].getX(),points[3].getY()+(k-1)*(points[3].getY()-points[1].getY()));
+
+                                return new Rectangle(p1, p2, p3, p4);
+
+                            } case NORMAL:{
+                                Point p1 = new Point(points[0].getX() + (k - 1) * (points[0].getX() - points[1].getX()), points[0].getY() + (k - 1) * (points[0].getY() - points[1].getY()));
+                                Point p2 = points[1];
+                                Point p3 = new Point(points[2].getX() + (k - 1) * (points[2].getX() - points[1].getX()), points[2].getY() + (k - 1) * (points[2].getY() - points[1].getY()));
+                                Point p4 = new Point(points[3].getX() + (k - 1) * (points[3].getX() - points[0].getX() + (points[3].getX() - points[2].getX())), points[3].getY() + (k - 1) * (points[3].getY() - points[0].getY() + (points[3].getY() - points[2].getY())));
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                        }
+
 
                     }
                     case THIRD: {
+                        switch (typeOfShape){
 
-                        Point p1 = new Point(points[0].x + (k - 1) * (points[0].x - points[3].x + points[0].x - points[1].x), points[0].y + (k - 1) * (points[0].y - points[3].y + points[0].y - points[1].y));
-                        Point p2 = new Point(points[1].x + (k - 1) * (points[1].x - points[2].x), points[1].y + (k - 1) * (points[1].y - points[2].y));
-                        Point p3 = points[2];
-                        Point p4 = new Point(points[3].x + (k - 1) * (points[3].x - points[2].x), points[3].y + (k - 1) * (points[3].y - points[2].y));
+                            case HORIZONTAL:{
+                                Point p1 = new Point(points[0].getX() + (k-1)*(points[0].getX()-points[2].getX()),points[0].getY());
+                                Point p2 = new Point(points[1].getX() + (k-1)*(points[1].getX()-points[2].getX()),points[1].getY());
+                                Point p3 = points[2];
+                                Point p4 = new Point(points[3].getX() + (k-1)*(points[3].getX()-points[2].getX()),points[3].getY());
 
-                        return new Rectangle(p1, p2, p3, p4);
+                                return new Rectangle(p1, p2, p3, p4);
+
+                            }case VERTICAL:{
+                                Point p1 = new Point(points[0].getX() ,points[0].getY()+ (k-1)*(points[0].getY()-points[2].getY()));
+                                Point p2 = new Point(points[1].getX() ,points[1].getY()+ (k-1)*(points[1].getY()-points[2].getY()));
+                                Point p3 = points[2];
+                                Point p4 = new Point(points[3].getX() ,points[3].getY()+ (k-1)*(points[3].getY()-points[2].getY()));
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            } case NORMAL:{
+                                Point p1 = new Point(points[0].getX() + (k - 1) * (points[0].getX() - points[3].getX() + points[0].getX() - points[1].getX()), points[0].getY() + (k - 1) * (points[0].getY() - points[3].getY() + points[0].getY() - points[1].getY()));
+                                Point p2 = new Point(points[1].getX() + (k - 1) * (points[1].getX() - points[2].getX()), points[1].getY() + (k - 1) * (points[1].getY() - points[2].getY()));
+                                Point p3 = points[2];
+                                Point p4 = new Point(points[3].getX() + (k - 1) * (points[3].getX() - points[2].getX()), points[3].getY() + (k - 1) * (points[3].getY() - points[2].getY()));
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                        }
+
+
+
 
                     }
                     case FORTH: {
+                        switch (typeOfShape){
 
-                        Point p1 = new Point(points[0].x + (k - 1) * (points[0].x - points[3].x), points[0].y + (k - 1) * (points[0].y - points[3].y));
-                        Point p2 = new Point(points[1].x + (k - 1) * (points[1].x - points[2].x + points[1].x - points[0].x), points[1].y + (k - 1) * (points[1].y - points[2].y + points[1].y - points[0].y));
-                        Point p3 = new Point(points[2].x + (k - 1) * (points[2].x - points[3].x), points[2].y + (k - 1) * (points[2].y - points[3].y));
-                        Point p4 = points[3];
+                            case HORIZONTAL:{
+                                Point p1 = new Point(points[0].getX() + (k-1)*(points[0].getX()-points[3].getX()),points[0].getY());
+                                Point p2 = new Point(points[1].getX() + (k-1)*(points[1].getX()-points[3].getX()),points[1].getY());
+                                Point p3 = new Point(points[2].getX() + (k-1)*(points[2].getX()-points[3].getX()),points[2].getY());
+                                Point p4 = points[3];
 
-                        return new Rectangle(p1, p2, p3, p4);
+                                return new Rectangle(p1, p2, p3, p4);
+
+                            }case VERTICAL:{
+                                Point p1 = new Point(points[0].getX() ,points[0].getY()+ (k-1)*(points[0].getY()-points[3].getY()));
+                                Point p2 = new Point(points[1].getX() ,points[1].getY()+ (k-1)*(points[1].getY()-points[3].getY()));
+                                Point p3 = new Point(points[2].getX() ,points[2].getY()+ (k-1)*(points[2].getY()-points[3].getY()));
+                                Point p4 = points[3];
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            } case NORMAL:{
+                                Point p1 = new Point(points[0].getX() + (k - 1) * (points[0].getX() - points[3].getX()), points[0].getY() + (k - 1) * (points[0].getY() - points[3].getY()));
+                                Point p2 = new Point(points[1].getX() + (k - 1) * (points[1].getX() - points[2].getX() + points[1].getX() - points[0].getX()), points[1].getY() + (k - 1) * (points[1].getY() - points[2].getY() + points[1].getY() - points[0].getY()));
+                                Point p3 = new Point(points[2].getX() + (k - 1) * (points[2].getX() - points[3].getX()), points[2].getY() + (k - 1) * (points[2].getY() - points[3].getY()));
+                                Point p4 = points[3];
+
+                                return new Rectangle(p1, p2, p3, p4);
+                            }
+                        }
 
                     }
                 }
 
             }
             case CENTER: { // Масштабирование относительно центра
+                switch (typeOfShape){
+                    case NORMAL:{
+                        int horizontalDeltaX = (points[2].getX() - points[0].getX()) / 2;
+                        int horizontalDeltaY = (points[2].getY() - points[0].getY()) / 2;
+                        int verticalDeltaX = (points[3].getX() - points[1].getX()) / 2;
+                        int verticalDeltaY = (points[3].getY() - points[1].getY()) / 2;
 
-                int horizontalDeltaX = (points[2].x - points[0].x) / 2;
-                int horizontalDeltaY = (points[2].y - points[0].y) / 2;
-                int verticalDeltaX = (points[3].x - points[1].x) / 2;
-                int verticalDeltaY = (points[3].y - points[1].y) / 2;
+                        Point p1 = new Point(points[0].getX() - (k - 1) * horizontalDeltaX, points[0].getY() - (k - 1) * horizontalDeltaY);
+                        Point p2 = new Point(points[1].getX() - (k - 1) * verticalDeltaX, points[1].getY() - (k - 1) * verticalDeltaY);
+                        Point p3 = new Point(points[2].getX() + (k - 1) * horizontalDeltaX, points[2].getY() + (k - 1) * horizontalDeltaY);
+                        Point p4 = new Point(points[3].getX() + (k - 1) * verticalDeltaX, points[3].getY() + (k - 1) * verticalDeltaY);
 
-                Point p1 = new Point(points[0].x - (k - 1) * horizontalDeltaX, points[0].y - (k - 1) * horizontalDeltaY);
-                Point p2 = new Point(points[1].x - (k - 1) * verticalDeltaX, points[1].y - (k - 1) * verticalDeltaY);
-                Point p3 = new Point(points[2].x + (k - 1) * horizontalDeltaX, points[2].y + (k - 1) * horizontalDeltaY);
-                Point p4 = new Point(points[3].x + (k - 1) * verticalDeltaX, points[3].y + (k - 1) * verticalDeltaY);
+                        return new Rectangle(p1, p2, p3, p4);
 
-                return new Rectangle(p1, p2, p3, p4);
+                    }
+                    case VERTICAL:{
+                        int horizontalDeltaX = (points[2].getX() - points[0].getX()) / 2;
+                        int horizontalDeltaY = (points[2].getY() - points[0].getY()) / 2;
+                        int verticalDeltaX = (points[3].getX() - points[1].getX()) / 2;
+                        int verticalDeltaY = (points[3].getY() - points[1].getY()) / 2;
+
+                        Point p1 = new Point(points[0].getX(), points[0].getY() - (k - 1) * horizontalDeltaY);
+                        Point p2 = new Point(points[1].getX(), points[1].getY() - (k - 1) * verticalDeltaY);
+                        Point p3 = new Point(points[2].getX(), points[2].getY() + (k - 1) * horizontalDeltaY);
+                        Point p4 = new Point(points[3].getX(), points[3].getY() + (k - 1) * verticalDeltaY);
+
+                        return new Rectangle(p1, p2, p3, p4);
+                    }
+                    case HORIZONTAL:{
+                        int horizontalDeltaX = (points[2].getX() - points[0].getX()) / 2;
+                        int horizontalDeltaY = (points[2].getY() - points[0].getY()) / 2;
+                        int verticalDeltaX = (points[3].getX() - points[1].getX()) / 2;
+                        int verticalDeltaY = (points[3].getY() - points[1].getY()) / 2;
+
+                        Point p1 = new Point(points[0].getX() - (k - 1) * horizontalDeltaX, points[0].getY());
+                        Point p2 = new Point(points[1].getX() - (k - 1) * verticalDeltaX, points[1].getY());
+                        Point p3 = new Point(points[2].getX() + (k - 1) * horizontalDeltaX, points[2].getY());
+                        Point p4 = new Point(points[3].getX() + (k - 1) * verticalDeltaX, points[3].getY());
+
+                        return new Rectangle(p1, p2, p3, p4);
+                    }
+                }
+
+
             }
         }
         return null;
