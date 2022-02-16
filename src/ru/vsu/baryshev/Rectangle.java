@@ -28,12 +28,23 @@ class Rectangle  {
         NORMAL
     }
 
-    public Point p1;
-    public Point p2;
-    public Point p3;
-    public Point p4;
+    private Point p1;
+    private Point p2;
+    private Point p3;
+    private Point p4;
 
-
+    public Point getP1() {
+        return p1;
+    }
+    public Point getP2() {
+        return p2;
+    }
+    public Point getP3() {
+        return p3;
+    }
+    public Point getP4() {
+        return p4;
+    }
 
 
     public Rectangle(Point p1, Point p2, Point p3, Point p4) {

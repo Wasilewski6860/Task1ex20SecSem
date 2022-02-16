@@ -107,10 +107,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                comp.addLine(rectangle.p1.getX(), rectangle.p1.getY(), rectangle.p2.getX(), rectangle.p2.getY(), Color.BLACK);
-                comp.addLine(rectangle.p2.getX(), rectangle.p2.getY(), rectangle.p3.getX(), rectangle.p3.getY(), Color.BLACK);
-                comp.addLine(rectangle.p3.getX(), rectangle.p3.getY(), rectangle.p4.getX(), rectangle.p4.getY(), Color.BLACK);
-                comp.addLine(rectangle.p4.getX(), rectangle.p4.getY(), rectangle.p1.getX(), rectangle.p1.getY(), Color.BLACK);
+                comp.addLine(rectangle.getP1().getX(), rectangle.getP1().getY(), rectangle.getP2().getX(), rectangle.getP2().getY(), Color.BLACK);
+                comp.addLine(rectangle.getP2().getX(), rectangle.getP2().getY(), rectangle.getP3().getX(), rectangle.getP3().getY(), Color.BLACK);
+                comp.addLine(rectangle.getP3().getX(), rectangle.getP3().getY(), rectangle.getP4().getX(), rectangle.getP4().getY(), Color.BLACK);
+                comp.addLine(rectangle.getP4().getX(), rectangle.getP4().getY(), rectangle.getP1().getX(), rectangle.getP1().getY(), Color.BLACK);
 
                 textField.setText("S= " + Rectangle.searchOfS(rectangle)+ "P= " + Rectangle.searchForP(rectangle));
 
@@ -130,10 +130,10 @@ public class Main {
 
                 Rectangle circedRectangle = Rectangle.createACircumscribedRectangle(rectangle);
 
-                comp.addLine(circedRectangle.p1.getX(), circedRectangle.p1.getY(), circedRectangle.p2.getX(), circedRectangle.p2.getY(), Color.BLACK);
-                comp.addLine(circedRectangle.p2.getX(), circedRectangle.p2.getY(), circedRectangle.p3.getX(), circedRectangle.p3.getY(), Color.BLACK);
-                comp.addLine(circedRectangle.p3.getX(), circedRectangle.p3.getY(), circedRectangle.p4.getX(), circedRectangle.p4.getY(), Color.BLACK);
-                comp.addLine(circedRectangle.p4.getX(), circedRectangle.p4.getY(), circedRectangle.p1.getX(), circedRectangle.p1.getY(), Color.BLACK);
+                comp.addLine(circedRectangle.getP1().getX(), circedRectangle.getP1().getY(), circedRectangle.getP2().getX(), circedRectangle.getP2().getY(), Color.BLACK);
+                comp.addLine(circedRectangle.getP2().getX(), circedRectangle.getP2().getY(), circedRectangle.getP3().getX(), circedRectangle.getP3().getY(), Color.BLACK);
+                comp.addLine(circedRectangle.getP3().getX(), circedRectangle.getP3().getY(), circedRectangle.getP4().getX(), circedRectangle.getP4().getY(), Color.BLACK);
+                comp.addLine(circedRectangle.getP4().getX(), circedRectangle.getP4().getY(), circedRectangle.getP1().getX(), circedRectangle.getP1().getY(), Color.BLACK);
             }
         });
 
@@ -143,10 +143,10 @@ public class Main {
 
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.NORMAL,2);
 
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
 
             }
         });
@@ -156,10 +156,10 @@ public class Main {
 
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.NORMAL,2);
 
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
 
             }
         });
@@ -169,10 +169,10 @@ public class Main {
 
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.NORMAL,2);
 
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
 
             }
         });
@@ -180,10 +180,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.NORMAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -192,10 +192,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.NORMAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -204,10 +204,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.NORMAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -216,10 +216,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.NORMAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -228,10 +228,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.NORMAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -242,10 +242,10 @@ public class Main {
 
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.HORIZONTAL,2);
 
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
 
             }
         });
@@ -255,10 +255,10 @@ public class Main {
 
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.HORIZONTAL,2);
 
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
 
             }
         });
@@ -268,20 +268,20 @@ public class Main {
 
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.HORIZONTAL,2);
 
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
             }
         });
         shareForthSideHorizontal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.HORIZONTAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -290,10 +290,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.HORIZONTAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -302,10 +302,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.HORIZONTAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -314,10 +314,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.HORIZONTAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -326,10 +326,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.HORIZONTAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -340,10 +340,10 @@ public class Main {
 
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.VERTICAL,2);
 
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
 
             }
         });
@@ -353,10 +353,10 @@ public class Main {
 
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.VERTICAL,2);
 
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
 
             }
         });
@@ -366,10 +366,10 @@ public class Main {
 
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.VERTICAL,2);
 
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
 
             }
         });
@@ -377,10 +377,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.SIDE, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.VERTICAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -389,10 +389,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FIRST, Rectangle.typeOfShape.VERTICAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -401,10 +401,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.SECOND, Rectangle.typeOfShape.VERTICAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -413,10 +413,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.THIRD, Rectangle.typeOfShape.VERTICAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -425,10 +425,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.POINT, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.VERTICAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
                 System.out.println("Shared");
 
             }
@@ -438,10 +438,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.CENTER, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.NORMAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
             }
         });
 
@@ -449,10 +449,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.CENTER, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.HORIZONTAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
             }
         });
 
@@ -460,10 +460,10 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Rectangle rec = Rectangle.moving(rectangle, Rectangle.typeOfHolding.CENTER, Rectangle.numberOFSelected.FORTH, Rectangle.typeOfShape.VERTICAL,2);
-                comp.addLine(rec.p1.getX(), rec.p1.getY(), rec.p2.getX(), rec.p2.getY(), Color.BLACK);
-                comp.addLine(rec.p2.getX(), rec.p2.getY(), rec.p3.getX(), rec.p3.getY(), Color.BLACK);
-                comp.addLine(rec.p3.getX(), rec.p3.getY(), rec.p4.getX(), rec.p4.getY(), Color.BLACK);
-                comp.addLine(rec.p4.getX(), rec.p4.getY(), rec.p1.getX(), rec.p1.getY(), Color.BLACK);
+                comp.addLine(rec.getP1().getX(), rec.getP1().getY(), rec.getP2().getX(), rec.getP2().getY(), Color.BLACK);
+                comp.addLine(rec.getP2().getX(), rec.getP2().getY(), rec.getP3().getX(), rec.getP3().getY(), Color.BLACK);
+                comp.addLine(rec.getP3().getX(), rec.getP3().getY(), rec.getP4().getX(), rec.getP4().getY(), Color.BLACK);
+                comp.addLine(rec.getP4().getX(), rec.getP4().getY(), rec.getP1().getX(), rec.getP1().getY(), Color.BLACK);
             }
         });
 
