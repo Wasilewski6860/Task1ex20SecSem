@@ -46,6 +46,21 @@ class Rectangle  {
         return p4;
     }
 
+    public void setP1(Point p1) {
+        this.p1 = p1;
+    }
+
+    public void setP2(Point p2) {
+        this.p2 = p2;
+    }
+
+    public void setP3(Point p3) {
+        this.p3 = p3;
+    }
+
+    public void setP4(Point p4) {
+        this.p4 = p4;
+    }
 
     public Rectangle(Point p1, Point p2, Point p3, Point p4) {
 
@@ -66,16 +81,17 @@ class Rectangle  {
     }
 
 
-    public static double searchOfS(Rectangle rec) { // Поиск площади переданного прямоугольника
 
-        double m = 0.5 * (rec.p1.getX() * rec.p2.getY() + rec.p2.getX() * rec.p3.getY() + rec.p3.getX() * rec.p4.getY() + rec.p4.getX() * rec.p1.getY() - rec.p2.getX() * rec.p1.getY() - rec.p3.getX() * rec.p2.getY() - rec.p4.getX() * rec.p3.getY() - rec.p1.getX() * rec.p4.getY());
+    public  double searchOfS() { // Поиск площади переданного прямоугольника
+
+        double m = 0.5 * (this.p1.getX() * this.p2.getY() + this.p2.getX() * this.p3.getY() + this.p3.getX() * this.p4.getY() + this.p4.getX() * this.p1.getY() - this.p2.getX() * this.p1.getY() - this.p3.getX() * this.p2.getY() - this.p4.getX() * this.p3.getY() - this.p1.getX() * this.p4.getY());
         if (m >= 0) {
             return m;
         } else return -1 * m;
     }
 
-    public static double searchForP(Rectangle rec) { // Поиск периметра
-        return distanceBetweenPoints(rec.p1, rec.p2) + distanceBetweenPoints(rec.p2, rec.p3) + distanceBetweenPoints(rec.p3, rec.p4) + distanceBetweenPoints(rec.p4, rec.p1);
+    public  double searchForP() { // Поиск периметра
+        return distanceBetweenPoints(this.p1, this.p2) + distanceBetweenPoints(this.p2, this.p3) + distanceBetweenPoints(this.p3, this.p4) + distanceBetweenPoints(this.p4, this.p1);
     }
 
 
@@ -151,11 +167,19 @@ class Rectangle  {
 
     }
 
+    public Rectangle moving(int deltaX,int deltaY){
+        this.setP1(new Point(this.getP1().getX()+deltaX,this.getP1().getY()+deltaY));
+        this.setP2(new Point(this.getP2().getX()+deltaX,this.getP2().getY()+deltaY));
+        this.setP3(new Point(this.getP3().getX()+deltaX,this.getP3().getY()+deltaY));
+        this.setP4(new Point(this.getP4().getX()+deltaX,this.getP4().getY()+deltaY));
 
-    public static Rectangle moving(Rectangle startRectangle, typeOfHolding type, numberOFSelected number,typeOfShape typeOfShape, int k) { // Масштабирование фигуры,передается стартовый прямоугольник,
+        return  this;
+    }
+
+    public  Rectangle sharing(typeOfHolding type, numberOFSelected number, typeOfShape typeOfShape, int k) { // Масштабирование фигуры,передается стартовый прямоугольник,
         // тип опорной точки(точка/сторона,центр), номер выбранной точки, коэффициен масштабирования
 
-        Point[] points = sortClockwise(startRectangle); // Сортировка точек исходной фигуры
+        Point[] points = sortClockwise(this); // Сортировка точек исходной фигуры
 
 
         switch (type) { // Посколько масштабирование в разный случаях разное,
